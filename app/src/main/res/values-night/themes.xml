@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Tippy" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary Brand Color -->
+        <item name="colorPrimary">@color/darkCyan</item>
+        <item name="colorPrimaryVariant">@color/midCyan</item>
+        <item name="colorOnPrimary">@color/lightCyan</item>
+        <!--Secondary Brand Color -->
+        <item name="colorSecondary">@color/darkCyan</item>
+        <item name="colorSecondaryVariant">@color/lightOrange</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+    </style>
+</resources>
