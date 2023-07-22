@@ -10,10 +10,10 @@
         <item name="colorPrimaryVariant">@color/midCyan</item>
         <item name="colorOnPrimary">@color/lightCyan</item>
         <!--Secondary Brand Color -->
-        <item name="colorSecondary">@color/orangeBrown</item>
+        <item name="colorSecondary">@color/black</item>
         <item name="colorSecondaryVariant">@color/lightOrange</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorBackground">@color/orangeBrown</item>
     </style>
 
     <style name="Theme.Tippy" parent="Base.Theme.Tippy" />
