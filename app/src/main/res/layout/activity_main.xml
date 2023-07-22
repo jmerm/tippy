@@ -39,16 +39,6 @@
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
 
-    <TextView
-        android:id="@+id/tvTotalLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/total"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
-
     <!-- Views on the right side -->
 
     <EditText
@@ -57,8 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:ems="8"
-        android:hint="Bill Amount"
+        android:hint="@string/bill_amount"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvBaseLabel"
         app:layout_constraintStart_toEndOf="@+id/tvBaseLabel"
         app:layout_constraintTop_toTopOf="@+id/tvBaseLabel"
@@ -67,7 +58,7 @@
     <SeekBar
         android:id="@+id/seekBarTip"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:max="30"
         app:layout_constraintBottom_toBottomOf="@+id/tvTipPercentLabel"
         app:layout_constraintStart_toStartOf="@+id/etBaseAmount"
@@ -94,6 +85,17 @@
         tools:text="103.11" />
 
     <TextView
+        android:id="@+id/tvTotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintStart_toStartOf="@+id/swSplit"
+        app:layout_constraintTop_toBottomOf="@+id/swSplit" />
+
+    <TextView
         android:id="@+id/tvFooter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,4 +117,15 @@
         app:layout_constraintStart_toStartOf="@+id/seekBarTip"
         app:layout_constraintTop_toBottomOf="@+id/seekBarTip"
         tools:text="Acceptable" />
+
+    <Switch
+        android:id="@+id/swSplit"
+        android:layout_width="117dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Split?"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

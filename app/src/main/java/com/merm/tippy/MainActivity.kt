@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.SeekBar
+import android.widget.Switch
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
@@ -20,8 +21,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTipAmount: TextView
     private lateinit var tvTotalAmount: TextView
     private lateinit var tvTipDescription: TextView
-
-
+    private lateinit var swSplit: Switch
+    private lateinit var tvTotalLabel: TextView
+    private var split: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
+        swSplit = findViewById(R.id.swSplit)
+        tvTotalLabel = findViewById(R.id.tvTotalLabel)
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercentLabel.text = "$INITIAL_TIP_PERCENT%"
         updateTipDescription(INITIAL_TIP_PERCENT)
@@ -58,6 +62,18 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        swSplit.setOnCheckedChangeListener {_, isChecked->
+            if(isChecked){
+                split = true
+                tvTotalLabel.text = "Your Half"
+                computeTipAndTotal()
+            }
+            else{
+                split = false
+                tvTotalLabel.text = "Total"
+                computeTipAndTotal()
+            }
+        }
 
     }
 
@@ -90,7 +106,12 @@ class MainActivity : AppCompatActivity() {
         val tipPercent = seekBarTip.progress
         //2.Compute the tip and total
         val tipAmount = baseAmount * tipPercent / 100
-        val totalAmount = baseAmount + tipAmount
+        var totalAmount = (baseAmount + tipAmount)
+        if (split)
+        {
+            totalAmount = (baseAmount + tipAmount)/2
+        }
+
         //3.Update the UI
         tvTipAmount.text = "$%.2f".format(tipAmount)
         tvTotalAmount.text = "$%.2f".format(totalAmount)
